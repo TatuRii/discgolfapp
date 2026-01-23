@@ -17,6 +17,9 @@ export type DemoTabParamList = {
 
 export type BottomTabParamList = {
   Home: undefined
+  Map: undefined
+  Profile: undefined
+  More: undefined
 }
 // App Stack Navigator types
 export type AppStackParamList = {
@@ -26,6 +29,9 @@ export type AppStackParamList = {
   BottomNavigator: NavigatorScreenParams<BottomTabParamList>
   // 🔥 Your screens go here
   Home: undefined
+  Map: undefined
+  Profile: undefined
+  More: undefined
   // IGNITE_GENERATOR_ANCHOR_APP_STACK_PARAM_LIST
 }
 
