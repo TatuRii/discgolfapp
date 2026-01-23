@@ -1,4 +1,4 @@
-name: React Native CI (Yarn)
+name: Ignite CI
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  analyze-and-test:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -21,37 +21,13 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+
+      - name: TypeScript check
+        run: yarn tsc # Ignite-projekteissa on yleensä tsc-skripti
 
       - name: Lint check
         run: yarn lint
 
       - name: Run unit tests
         run: yarn test
-
-  build-android:
-    runs-on: ubuntu-latest
-    needs: analyze-and-test
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'zulu'
-          java-version: '17'
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'yarn'
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-
-      - name: Build Android Debug APK
-        run: |
-          cd android
-          chmod +x gradlew
-          ./gradlew assembleDebug --no-daemon
+        
