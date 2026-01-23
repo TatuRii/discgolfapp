@@ -12,8 +12,8 @@ export const HomeScreen: FC<HomeScreenProps> = () => {
   // Pull in navigation via hook
   // const navigation = useNavigation()
   return (
-    <Screen style={$root} preset="scroll">
-      <Text text="home" />
+    <Screen style={$root} preset="scroll" safeAreaEdges={["top"]}>
+      <Text text="Home" preset="heading" />
     </Screen>
   )
 }

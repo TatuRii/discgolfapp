@@ -1,85 +1,65 @@
 const palette = {
+  // Neutraalit: Poistettu ruskehtavuus, vaihdettu puhtaaseen "Slate" harmaaseen.
+  // Tämä tekee sovelluksesta modernimman ja helpommin luettavan auringossa.
   neutral100: "#FFFFFF",
-  neutral200: "#F4F2F1",
-  neutral300: "#D7CEC9",
-  neutral400: "#B6ACA6",
-  neutral500: "#978F8A",
-  neutral600: "#564E4A",
-  neutral700: "#3C3836",
-  neutral800: "#191015",
-  neutral900: "#000000",
+  neutral200: "#F1F5F9",
+  neutral300: "#E2E8F0",
+  neutral400: "#94A3B8",
+  neutral500: "#64748B",
+  neutral600: "#475569",
+  neutral700: "#334155",
+  neutral800: "#1E293B",
+  neutral900: "#0F172A",
 
-  primary100: "#F4E0D9",
-  primary200: "#E8C1B4",
-  primary300: "#DDA28E",
-  primary400: "#D28468",
-  primary500: "#C76542",
-  primary600: "#A54F31",
+  // Primary: "Fairway Green" – Lajin ydinväri.
+  // Toimii hyvin nappeihin ja brändielementteihin.
+  primary100: "#DCFCE7",
+  primary200: "#BBF7D0",
+  primary300: "#86EFAC",
+  primary400: "#4ADE80",
+  primary500: "#22C55E", // Pääväri
+  primary600: "#16A34A",
 
-  secondary100: "#DCDDE9",
-  secondary200: "#BCC0D6",
-  secondary300: "#9196B9",
-  secondary400: "#626894",
-  secondary500: "#41476E",
+  // Secondary: "Disc Orange" – Erittäin hyvä kontrastiväri toimintopainikkeille.
+  secondary100: "#FFEDD5",
+  secondary200: "#FED7AA",
+  secondary300: "#FDBA8C",
+  secondary400: "#FB923C",
+  secondary500: "#F97316", // Huomioväri
+  secondary600: "#EA580C",
 
-  accent100: "#FFEED4",
-  accent200: "#FFE1B2",
-  accent300: "#FDD495",
-  accent400: "#FBC878",
-  accent500: "#FFBB50",
+  // Accent: "Golden Birdie" – Käytetään erikoistilanteisiin tai korostuksiin.
+  accent100: "#FEF9C3",
+  accent200: "#FEF08A",
+  accent300: "#FDE047",
+  accent400: "#FACC15",
+  accent500: "#EAB308",
 
-  angry100: "#F2D6CD",
-  angry500: "#C03403",
+  // Angry: Selkeä virheväri (Bogey/Error).
+  angry100: "#FEE2E2",
+  angry500: "#EF4444",
 
-  overlay20: "rgba(25, 16, 21, 0.2)",
-  overlay50: "rgba(25, 16, 21, 0.5)",
+  overlay20: "rgba(15, 23, 42, 0.2)",
+  overlay50: "rgba(15, 23, 42, 0.5)",
 } as const
 
 export const colors = {
-  /**
-   * The palette is available to use, but prefer using the name.
-   * This is only included for rare, one-off cases. Try to use
-   * semantic names as much as possible.
-   */
   palette,
-  /**
-   * A helper for making something see-thru.
-   */
   transparent: "rgba(0, 0, 0, 0)",
-  /**
-   * The default text color in many components.
-   */
-  text: palette.neutral800,
-  /**
-   * Secondary text information.
-   */
+
+  // Teksti on nyt tumman laivastonsinistä/harmaata, mikä parantaa luettavuutta.
+  text: palette.neutral900,
   textDim: palette.neutral600,
-  /**
-   * The default color of the screen background.
-   */
-  background: palette.neutral200,
-  /**
-   * The default border color.
-   */
-  border: palette.neutral400,
-  /**
-   * The main tinting color.
-   */
+
+  // Tausta on erittäin vaalea harmaa, joka ei heijasta niin pahasti kuin puhdas valkoinen.
+  background: palette.neutral100,
+  border: palette.neutral300,
+
+  // Tint on nyt dynaaminen vihreä.
   tint: palette.primary500,
-  /**
-   * The inactive tinting color.
-   */
-  tintInactive: palette.neutral300,
-  /**
-   * A subtle color used for lines.
-   */
-  separator: palette.neutral300,
-  /**
-   * Error messages.
-   */
+  tintInactive: palette.neutral400,
+  separator: palette.neutral200,
+
   error: palette.angry500,
-  /**
-   * Error Background.
-   */
   errorBackground: palette.angry100,
 } as const
