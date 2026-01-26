@@ -17,6 +17,12 @@
   "android": {
     "icon": "./assets/images/app-icon-android-legacy.png",
     "package": "com.discgolfapp",
+    "config": {
+      "googleMaps": {
+        "apiKey": "AIzaSyDMT1WU8nxuFI1LAWpxs1SQ4OxuqMuflkQ"
+      }
+    },
+    "permissions": ["ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION"],
     "adaptiveIcon": {
       "foregroundImage": "./assets/images/app-icon-android-adaptive-foreground.png",
       "backgroundImage": "./assets/images/app-icon-android-adaptive-background.png"
