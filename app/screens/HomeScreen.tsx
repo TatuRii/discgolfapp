@@ -37,9 +37,9 @@ const $root: ViewStyle = {
 }
 
 const $button: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
-  backgroundColor: colors.palette.primary500,
+  backgroundColor: colors.tint,
   marginTop: spacing.md,
 })
 const $buttonPressed: ThemedStyle<ViewStyle> = ({ colors }) => ({
-  backgroundColor: colors.palette.neutral900,
+  backgroundColor: colors.tintInactive,
 })

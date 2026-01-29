@@ -1,5 +1,5 @@
-import { FC } from "react"
-import { Image, ImageStyle, TextStyle, View, ViewStyle } from "react-native"
+import { FC, useCallback } from "react"
+import { Image, ImageStyle, TextStyle, View, ViewStyle, LayoutAnimation } from "react-native"
 
 import { Button } from "@/components/Button"
 import { Screen } from "@/components/Screen"
@@ -19,7 +19,7 @@ const welcomeFace = require("@assets/images/welcome-face.png")
 interface WelcomeScreenProps extends AppStackScreenProps<"Welcome"> {}
 
 export const WelcomeScreen: FC<WelcomeScreenProps> = function WelcomeScreen(_props) {
-  const { themed, theme } = useAppTheme()
+  const { setThemeContextOverride, themeContext, themed, theme } = useAppTheme()
 
   const { navigation } = _props
   const { logout } = useAuth()
@@ -37,6 +37,11 @@ export const WelcomeScreen: FC<WelcomeScreenProps> = function WelcomeScreen(_pro
   )
 
   const $bottomContainerInsets = useSafeAreaInsetsStyle(["bottom"])
+
+  const toggleTheme = useCallback(() => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut) // Animate the transition
+    setThemeContextOverride(themeContext === "dark" ? "light" : "dark")
+  }, [themeContext, setThemeContextOverride])
 
   return (
     <Screen preset="fixed" contentContainerStyle={$styles.flex1}>
@@ -66,6 +71,11 @@ export const WelcomeScreen: FC<WelcomeScreenProps> = function WelcomeScreen(_pro
           tx="welcomeScreen:letsGo"
           onPress={goNext}
         />
+        <Button
+          preset="reversed"
+          text={`Toggle Theme: ${themeContext === "dark" ? "light" : "dark"}`}
+          onPress={toggleTheme}
+        />
       </View>
     </Screen>
   )
@@ -83,7 +93,7 @@ const $bottomContainer: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
   flexShrink: 1,
   flexGrow: 0,
   flexBasis: "43%",
-  backgroundColor: colors.palette.neutral700,
+  backgroundColor: colors.border,
   borderTopLeftRadius: 16,
   borderTopRightRadius: 16,
   paddingHorizontal: spacing.lg,
