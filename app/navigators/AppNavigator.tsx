@@ -11,6 +11,7 @@ import Config from "@/config"
 import { useAuth } from "@/context/AuthContext"
 import { ErrorBoundary } from "@/screens/ErrorScreen/ErrorBoundary"
 import { LoginScreen } from "@/screens/LoginScreen"
+import { PuttPracticeScreen } from "@/screens/PuttPracticeScreen"
 import { WelcomeScreen } from "@/screens/WelcomeScreen"
 import { useAppTheme } from "@/theme/context"
 
@@ -59,6 +60,7 @@ const AppStack = () => {
 
       {/** 🔥 Your screens go here */}
       {/* IGNITE_GENERATOR_ANCHOR_APP_STACK_SCREENS */}
+      <Stack.Screen name="PuttPractice" component={PuttPracticeScreen} />
     </Stack.Navigator>
   )
 }

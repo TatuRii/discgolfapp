@@ -7,19 +7,25 @@ import { Text } from "@/components/Text"
 import type { AppStackScreenProps } from "@/navigators/navigationTypes"
 import { useAppTheme } from "@/theme/context"
 import type { ThemedStyle } from "@/theme/types"
-// import { useNavigation } from "@react-navigation/native"
 
 interface MoreScreenProps extends AppStackScreenProps<"More"> {}
 
-export const MoreScreen: FC<MoreScreenProps> = () => {
-  // Pull in navigation via hook
-  // const navigation = useNavigation()
+export const MoreScreen: FC<MoreScreenProps> = ({ navigation }) => {
   const { themed } = useAppTheme()
+
+  const onPuttPracticePress = () => {
+    navigation.navigate("PuttPractice")
+  }
   return (
     <Screen style={$root} preset="scroll" safeAreaEdges={["top"]}>
       <Text preset="heading" text="More" />
       <Text preset="subheading" text="Practice" />
-      <Button style={themed($button)} pressedStyle={themed($buttonPressed)} text="Putt practice" />
+      <Button
+        style={themed($button)}
+        pressedStyle={themed($buttonPressed)}
+        text="Putt practice"
+        onPress={onPuttPracticePress}
+      />
     </Screen>
   )
 }
