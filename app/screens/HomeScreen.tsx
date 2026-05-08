@@ -7,17 +7,14 @@ import { Text } from "@/components/Text"
 import type { AppStackScreenProps } from "@/navigators/navigationTypes"
 import { useAppTheme } from "@/theme/context"
 import type { ThemedStyle } from "@/theme/types"
-// import { useNavigation } from "@react-navigation/native"
 
 interface HomeScreenProps extends AppStackScreenProps<"Home"> {}
 
-export const HomeScreen: FC<HomeScreenProps> = () => {
-  // Pull in navigation via hook
-  // const navigation = useNavigation()
+export const HomeScreen: FC<HomeScreenProps> = ({ navigation }) => {
   const { themed } = useAppTheme()
 
   const handleClick = () => {
-    // navigation.navigate("SomeOtherScreen")
+    navigation.navigate("CoursePicker")
   }
   return (
     <Screen style={$root} preset="scroll" safeAreaEdges={["top"]}>
