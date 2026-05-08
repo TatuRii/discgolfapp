@@ -33,6 +33,7 @@ export type AppStackParamList = {
   Profile: undefined
   More: undefined
   PuttPractice: undefined
+  CoursePicker: undefined
   // IGNITE_GENERATOR_ANCHOR_APP_STACK_PARAM_LIST
 }
 

@@ -9,6 +9,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack"
 
 import Config from "@/config"
 import { useAuth } from "@/context/AuthContext"
+import { CoursePickerScreen } from "@/screens/CoursePickerScreen"
 import { ErrorBoundary } from "@/screens/ErrorScreen/ErrorBoundary"
 import { LoginScreen } from "@/screens/LoginScreen"
 import { PuttPracticeScreen } from "@/screens/PuttPracticeScreen"
@@ -49,18 +50,16 @@ const AppStack = () => {
       {isAuthenticated ? (
         <>
           <Stack.Screen name="Welcome" component={WelcomeScreen} />
-
           <Stack.Screen name="BottomNavigator" component={BottomNavigator} />
+          {/* IGNITE_GENERATOR_ANCHOR_APP_STACK_SCREENS */}
+          <Stack.Screen name="PuttPractice" component={PuttPracticeScreen} />
+          <Stack.Screen name="CoursePicker" component={CoursePickerScreen} />
         </>
       ) : (
         <>
           <Stack.Screen name="Login" component={LoginScreen} />
         </>
       )}
-
-      {/** 🔥 Your screens go here */}
-      {/* IGNITE_GENERATOR_ANCHOR_APP_STACK_SCREENS */}
-      <Stack.Screen name="PuttPractice" component={PuttPracticeScreen} />
     </Stack.Navigator>
   )
 }
