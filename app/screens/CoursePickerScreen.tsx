@@ -89,11 +89,7 @@ export const CoursePickerScreen: FC<CoursePickerScreenProps> = ({ navigation }) 
   }, [fetchNearestCourses])
 
   const handleSelect = (course: CourseWithDistance) => {
-    // Palataan edelliselle screenille valittu kurssi parametrina
-    navigation.goBack()
-    navigation.navigate("YourTargetScreen", { courseId: course.id, courseName: course.name })
-    // TAI jos käytetään route.params callbackia:
-    // route.params?.onSelect?.(course)
+    navigation.navigate("Score", { courseId: course.id, courseName: course.name })
   }
 
   const renderItem = ({ item }: { item: CourseWithDistance; index: number }) => (
@@ -104,7 +100,7 @@ export const CoursePickerScreen: FC<CoursePickerScreenProps> = ({ navigation }) 
     >
       <View style={$rowMiddle}>
         <Text style={themed($courseName)} text={item.name} numberOfLines={1} />
-        <Text style={themed($courseDetail)} text={`${item.holes} väylää`} />
+        <Text style={themed($courseDetail)} text={`${item.holes} holes`} />
       </View>
       <View style={$rowRight}>
         <Text
@@ -125,7 +121,7 @@ export const CoursePickerScreen: FC<CoursePickerScreenProps> = ({ navigation }) 
         <View style={themed($locationBanner)}>
           <Text
             style={themed($locationBannerText)}
-            text="Sijainti ei saatavilla – näytetään lähimmät radat Tampereelta"
+            text="Location not available – showing closest courses from Tampere"
           />
         </View>
       )}
@@ -133,7 +129,7 @@ export const CoursePickerScreen: FC<CoursePickerScreenProps> = ({ navigation }) 
       {isLoading ? (
         <View style={$centered}>
           <ActivityIndicator color={theme.colors.palette.primary500} size="large" />
-          <Text style={themed($loadingText)} text="Haetaan lähimmät radat…" />
+          <Text style={themed($loadingText)} text="Fetching closest courses…" />
         </View>
       ) : (
         <FlatList
@@ -144,14 +140,14 @@ export const CoursePickerScreen: FC<CoursePickerScreenProps> = ({ navigation }) 
           ItemSeparatorComponent={() => <View style={themed($separator)} />}
           ListEmptyComponent={
             <View style={$centered}>
-              <Text style={themed($emptyText)} text="Ratoja ei löydy lähialueelta." />
+              <Text style={themed($emptyText)} text="No courses found in your area." />
             </View>
           }
           ListHeaderComponent={
             <View style={themed($listHeader)}>
               <Text
                 style={themed($listHeaderText)}
-                text={`Lähimmät radat${locationDenied ? " (Tampere)" : ""}`}
+                text={`Closest Courses to you${locationDenied ? " (Tampere)" : ""}`}
               />
             </View>
           }

@@ -221,7 +221,7 @@ export const MapScreen: FC = () => {
       {selectedCourse && (
         <View style={themed($bottomSheet)}>
           <Text text={selectedCourse.name} style={themed($courseName)} />
-          <Text text={`${selectedCourse.holes} väylää`} style={themed($courseHoles)} />
+          <Text text={`${selectedCourse.holes} holes`} style={themed($courseHoles)} />
         </View>
       )}
     </View>
