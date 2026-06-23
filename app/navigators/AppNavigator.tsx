@@ -13,6 +13,7 @@ import { CoursePickerScreen } from "@/screens/CoursePickerScreen"
 import { ErrorBoundary } from "@/screens/ErrorScreen/ErrorBoundary"
 import { LoginScreen } from "@/screens/LoginScreen"
 import { PuttPracticeScreen } from "@/screens/PuttPracticeScreen"
+import { ScoreScreen } from "@/screens/ScoreScreen"
 import { WelcomeScreen } from "@/screens/WelcomeScreen"
 import { useAppTheme } from "@/theme/context"
 
@@ -54,6 +55,7 @@ const AppStack = () => {
           {/* IGNITE_GENERATOR_ANCHOR_APP_STACK_SCREENS */}
           <Stack.Screen name="PuttPractice" component={PuttPracticeScreen} />
           <Stack.Screen name="CoursePicker" component={CoursePickerScreen} />
+          <Stack.Screen name="Score" component={ScoreScreen} />
         </>
       ) : (
         <>
