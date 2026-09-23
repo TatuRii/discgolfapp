@@ -19,7 +19,7 @@ interface ScoreScreenProps extends AppStackScreenProps<"Score"> {}
 
 export const ScoreScreen: FC<ScoreScreenProps> = ({ route, navigation }) => {
   const { themed, theme } = useAppTheme()
-  const { courseId, courseName, holes } = route.params
+  const { courseName, holes } = route.params
 
   const [scores, setScores] = useState<HoleScore[]>(() =>
     Array.from({ length: holes }, () => ({ par: DEFAULT_PAR, strokes: null })),
