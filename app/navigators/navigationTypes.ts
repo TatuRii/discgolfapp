@@ -37,6 +37,7 @@ export type AppStackParamList = {
   Score: {
     courseId: string
     courseName: string
+    holes: number
   }
   // IGNITE_GENERATOR_ANCHOR_APP_STACK_PARAM_LIST
 }

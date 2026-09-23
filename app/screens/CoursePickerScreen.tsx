@@ -89,7 +89,11 @@ export const CoursePickerScreen: FC<CoursePickerScreenProps> = ({ navigation }) 
   }, [fetchNearestCourses])
 
   const handleSelect = (course: CourseWithDistance) => {
-    navigation.navigate("Score", { courseId: course.id, courseName: course.name })
+    navigation.navigate("Score", {
+      courseId: course.id,
+      courseName: course.name,
+      holes: course.holes,
+    })
   }
 
   const renderItem = ({ item }: { item: CourseWithDistance; index: number }) => (
